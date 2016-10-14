@@ -4,9 +4,9 @@ defaults: &defaults
   pool: 5
   username: Gabriel
   password:
-
-configure :development do
- db = URI.parse('postgres://postgres:Gabriel@localhost/development')
+#
+# configure :development do
+#  db = URI.parse('postgres://postgres:Gabriel@localhost/development')
 
 
 development:

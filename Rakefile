@@ -4,7 +4,7 @@ require 'active_record'
 require 'pg'
 require 'yaml'
 require 'rake'
-require 'app'
+require_relative 'api'
 require 'sinatra'
 require 'sinatra/activerecord/rake'
 
@@ -14,7 +14,7 @@ namespace :db do
   desc "Migrate the db"
   task :migrate do
     ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
-    ActiveRecord::Migrator.migrate("db/migrate/")
+    ActiveRecord::Migrator.migrate("db/migrate/001_create_champions")
   end
 
   desc "Create the db"

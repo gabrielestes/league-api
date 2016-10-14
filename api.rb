@@ -2,6 +2,7 @@ require 'sinatra'
 require 'active_record'
 require 'yaml'
 require 'json'
+require_relative 'models/champion'
 require 'pg'
 
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
@@ -10,7 +11,7 @@ before do
   content_type :json
 end
 
-database_config = YAML::load(File.open('config/database.yml'))
+database_config = YAML::load(File.open('config/database.example.yml'))
 
 after do
   ActiveRecord::Base.connection.close
@@ -33,5 +34,5 @@ end
 # FIND CHAMPION
 get '/api/champions/:id' do |id|
   champion = Champion.find_by(id: id)
-  
+
 end
