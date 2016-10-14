@@ -1,11 +1,6 @@
-source 'https://rubygems.org'
+champions
+http://ddragon.leagueoflegends.com/cdn/6.20.1/data/en_US/champion.json
 
-gem 'sinatra'
-gem 'thin'
-gem 'shotgun'
-gem 'pg'
-gem 'activerecord'
-gem 'sinatra-activerecord'
-gem 'pry'
-gem 'rake'
 
+image
+http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg
