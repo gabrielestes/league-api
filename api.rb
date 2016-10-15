@@ -29,10 +29,12 @@ end
 get '/api/champions' do
   champions = Champion.all
   champions.to_json
+  # File.read(File.join('public', 'index.html'))
 end
 
 # FIND CHAMPION
-get '/api/champions/:id' do |id|
-  champion = Champion.find_by(id: id)
 
+get '/api/champions/:name' do |name|
+  champion = Champion.find_by(name: name)
+  champion.to_json
 end
