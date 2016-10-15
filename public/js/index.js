@@ -3,9 +3,9 @@ var typeButton = $('.type-search');
 var assassinBox = $('.assassin-box input[type=checkbox]');
 var fighterBox = $('.fighter-box input[type=checkbox]');
 var mageBox = $('.mage-box input[type=checkbox]:checked');
-var marksmanBox = $('.marksman-box input[type=checkbox]:checked');
-var supportBox = $('.support-box input[type=checkbox]:checked');
-var tankBox = $('.tank-box input[type=checkbox]:checked');
+var marksmanBox = $('.marksman-box input[type=checkbox]');
+var supportBox = $('.support-box input[type=checkbox]');
+var tankBox = $('.tank-box input[type=checkbox]');
 
 function displayChampions(champion) {
   championList.append(
@@ -58,24 +58,24 @@ function displayByType(type) {
 
 // SORTING BY TYPE
 function sortByType() {
-  if(assassinBox) {
+  if ($('input.assassin-box').is(':checked')) {
     displayByType('Assassin');
   }
-  if(fighterBox) {
+  if ($('input.fighter-box').is(':checked')) {
     displayByType('Fighter');
   }
-  // if(mageBox.checked) {
-  //   displayByType('Mage');
-  // }
-  // if(marksmanBox.checked) {
-  //   displayByType('Marksman');
-  // }
-  // if(supportBox.checked) {
-  //   displayByType('Support');
-  // }
-  // if(tankBox.checked) {
-  //   displayByType('Tank');
-  // }
+  if ($('input.mage-box').is(':checked')) {
+    displayByType('Mage');
+  }
+  if ($('input.marksman-box').is(':checked')) {
+    displayByType('Marksman');
+  }
+  if ($('input.support-box').is(':checked')) {
+    displayByType('Support');
+  }
+  if ($('input.tank-box').is(':checked')) {
+    displayByType('Tank');
+  }
 }
 
 $('.search-button').click(function() {
