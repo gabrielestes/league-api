@@ -1,11 +1,11 @@
 var championList = $('.all-champions');
 var typeButton = $('.type-search');
-var assassinBox = $('.assassin-box input[type=checkbox]:checked');
-var fighterBox = $('.fighter-box');
-var mageBox = $('.mage-box');
-var marksmanBox = $('.marksman-box');
-var supportBox = $('.support-box');
-var tankBox = $('.tank-box');
+var assassinBox = $('.assassin-box input[type=checkbox]');
+var fighterBox = $('.fighter-box input[type=checkbox]');
+var mageBox = $('.mage-box input[type=checkbox]:checked');
+var marksmanBox = $('.marksman-box input[type=checkbox]:checked');
+var supportBox = $('.support-box input[type=checkbox]:checked');
+var tankBox = $('.tank-box input[type=checkbox]:checked');
 
 function displayChampions(champion) {
   championList.append(
@@ -55,22 +55,15 @@ function displayByType(type) {
           console.error('failed to get champion: ' + text + ', ' + error);
         });
 }
-console.log('outside functions work');
-if(assassinBox) {
-  console.log('if statement works');
-}
 
 // SORTING BY TYPE
 function sortByType() {
-  console.log('sort by type function begin');
   if(assassinBox) {
-    console.log('inside of if statement, before display funtion.');
     displayByType('Assassin');
-    console.log('inside of if statement, after display by type');
   }
-  // if(fighterBox.checked) {
-  //   displayByType('Fighter');
-  // }
+  if(fighterBox) {
+    displayByType('Fighter');
+  }
   // if(mageBox.checked) {
   //   displayByType('Mage');
   // }
