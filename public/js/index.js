@@ -10,7 +10,7 @@ var tankBox = $('.tank-box input[type=checkbox]');
 function displayChampions(champion) {
   championList.append(
     "<h2>" + champion.name + "</h2>" +
-    "<ul class='${champion.name}'>" +
+    "<ul>" +
       "<li>" + champion.title + "</li>" +
       "<li>" + champion.champ_class + "</li>" +
       "<li>" + "<span class='stat'>" + "Health " + "</span>" +
@@ -35,6 +35,9 @@ function displayChampions(champion) {
       champion.movement + "</li>" +
     "</ul>"
   );
+  $('ul').addClass(champion.name);
+  var classType = $("ul").attr("class");
+  console.log(classType);
 }
 
 function displayByType(type) {
