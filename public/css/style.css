@@ -1,4 +1,49 @@
 body {
-  /*font-family: 'Gentium Basic', serif;*/
   font-family: 'Cinzel', serif;
+  background-color: black;
+  background-image: url("/images/body_background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #ceab00;
+}
+
+
+.page-header {
+  background-color: black;
+  margin-top: 0;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+button {
+  color: black;
+}
+
+input {
+  color: black;
+}
+
+input[type=checkbox] {
+  margin-bottom: 10px;
+}
+
+input[type=search] {
+  margin-bottom: 10px;
+}
+
+.type-title {
+  margin-top: 20px;
+}
+
+img {
+  border-radius: 10px;
+}
+
+.list-group-item {
+  padding-bottom: 10px;
+  background-color: rgb(214, 214, 214);
+  color: rgb(32, 32, 32);
+  font-size: 12px;
+  border-radius: 3px;
 }

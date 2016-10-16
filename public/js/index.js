@@ -8,36 +8,45 @@ var supportBox = $('.support-box input[type=checkbox]');
 var tankBox = $('.tank-box input[type=checkbox]');
 
 function displayChampions(champion) {
-  championList.append(
-    "<h2>" + champion.name + "</h2>" +
-    "<ul>" +
-      "<li>" + champion.title + "</li>" +
-      "<li>" + champion.champ_class + "</li>" +
-      "<li>" + "<span class='stat'>" + "Health " + "</span>" +
-      champion.health + "</li>" +
-      "<li>" + "<span class='stat'>" + "Health Regen " + "</span>" +
-      champion.health_regen + "</li>" +
-      "<li>" + "<span class='stat'>" + "Magic " + "</span>" +
-      champion.magic + "</li>" +
-      "<li>" + "<span class='stat'>" + "Magic Regen " + "</span>" +
-      champion.magic_regen + "</li>" +
-      "<li>" + "<span class='stat'>" + "Attack Damage " + "</span>" +
-      champion.attack_damage + "</li>" +
-      "<li>" + "<span class='stat'>" + "Attack Speed " + "</span>" +
-      champion.attack_speed + "</li>" +
-      "<li>" + "<span class='stat'>" + "Attack Range " + "</span>" +
-      champion.attack_range + "</li>" +
-      "<li>" + "<span class='stat'>" + "Armor " + "</span>" +
-      champion.armor + "</li>" +
-      "<li>" + "<span class='stat'>" + "Magic Resist " + "</span>" +
-      champion.magic_resist + "</li>" +
-      "<li>" + "<span class='stat'>" + "Movement Speed " + "</span>" +
-      champion.movement + "</li>" +
-    "</ul>"
-  );
-  $('ul').addClass(champion.name);
-  var classType = $("ul").attr("class");
-  console.log(classType);
+  if($('ul.champion.name').length !== 0); {
+    championList.append(
+      "<h2>" + champion.name + ", " + champion.title + "</h2>" +
+      "<ul class='list-group'>" +
+        "<li class='list-group-item'>" + champion.champ_class + "</li>" +
+        "<li class='list-group-item'>" + "<span class='stat'>" + "Health: " + "</span>" +
+        champion.health + "</li>" +
+        "<li class='list-group-item'>" + "<span class='stat'>" + "Health Regen: " + "</span>" +
+        champion.health_regen + "</li>" +
+        "<li class='list-group-item'>" + "<span class='stat'>" + "Magic: " + "</span>" +
+        champion.magic + "</li>" +
+        "<li class='list-group-item'>" + "<span class='stat'>" + "Magic Regen: " + "</span>" +
+        champion.magic_regen + "</li>" +
+        "<li class='list-group-item'>" + "<span class='stat'>" + "Attack Damage: " + "</span>" +
+        champion.attack_damage + "</li>" +
+        "<li class='list-group-item'>" + "<span class='stat'>" + "Attack Speed: " + "</span>" +
+        champion.attack_speed + "</li>" +
+        "<li class='list-group-item'>" + "<span class='stat'>" + "Attack Range: " + "</span>" +
+        champion.attack_range + "</li>" +
+        "<li class='list-group-item'>" + "<span class='stat'>" + "Armor: " + "</span>" +
+        champion.armor + "</li>" +
+        "<li class='list-group-item'>" + "<span class='stat'>" + "Magic Resist: " + "</span>" +
+        champion.magic_resist + "</li>" +
+        "<li class='list-group-item'>" + "<span class='stat'>" + "Movement Speed: " + "</span>" +
+        champion.movement + "</li>" +
+      "</ul>"
+    );
+
+    displayChampionArt(champion.name);
+    $('ul').addClass(champion.name);
+  }
+}
+
+function displayChampionArt(name){
+  var imageLink = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
+      name + "_0.jpg";
+    $('.champion-art').append(
+      "<img src=" + imageLink + ">"
+    );
 }
 
 function displayByType(type) {
@@ -81,6 +90,7 @@ function sortByType() {
   }
 }
 
+
 $('.search-button').click(function() {
   var name = $('.query').val();
   $('.query').val('');
@@ -91,6 +101,7 @@ $('.search-button').click(function() {
     data: {}
   }).done(function(champion) {
     championList.empty();
+    $('.champion-art').empty();
     displayChampions(champion);
   }).fail(function(xhr, text, error) {
       console.error('failed to get champion: ' + text + ', ' + error);
