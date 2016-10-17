@@ -39,6 +39,7 @@ class ChampionData
       armor = stats['armor']
       magic_resist = stats['spellblock']
       movement = stats['movespeed']
+      img_slug = values['id']
       p attack_speed
 
       Champion.create(
@@ -54,7 +55,8 @@ class ChampionData
         attack_range: attack_range,
         armor: armor,
         magic_resist: magic_resist,
-        movement: movement
+        movement: movement,
+        img_slug: img_slug
       )
     end
   end
