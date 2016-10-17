@@ -7,6 +7,7 @@ gem 'sinatra-activerecord'
 gem 'pry'
 gem 'rake'
 gem 'httparty'
+# gem 'BCrypt'
 
 group :development do
   gem 'thin'

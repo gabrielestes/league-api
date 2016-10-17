@@ -4,6 +4,7 @@ require 'yaml'
 require 'json'
 require_relative 'models/champion'
 require 'pg'
+# require 'BCrypt'
 
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
@@ -25,16 +26,15 @@ get '/api' do
   'Enter a champion.'
 end
 
-# ALL champions
 get '/api/champions' do
   champions = Champion.all
+  p champions.to_json
   champions.to_json
-  # File.read(File.join('public', 'index.html'))
 end
-
-# FIND CHAMPION
 
 get '/api/champions/:name' do |name|
   champion = Champion.find_by(name: name)
   champion.to_json
 end
+
+# post '/api/login' do

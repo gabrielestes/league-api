@@ -19,6 +19,7 @@ class CreateChampions < ActiveRecord::Migration[5.0]
       t.float :armor
       t.float :magic_resist
       t.integer :movement
+      t.string :img_slug
     end
   end
 
